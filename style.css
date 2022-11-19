@@ -1,0 +1,166 @@
+:root {
+  --dy-bg: hsla(230, 78%, 8%, 1);
+  --h1-cl: hsla(194, 68%, 15%, 1);
+  --ip-ot-cl-fc: hsla(194, 97%, 31%, 1);
+  --ip-ot-cl: hsla(210, 9%, 31%, 0.3);
+  --ip-bg-cl: hsla(212, 23%, 89%, 1);
+  --mn-bg-cl: hsla(0, 0%, 100%, 1);
+  --lb-ft-cl: hsla(170, 100%, 13%, 1);
+  --error-cl: hsla(0, 86%, 59%, 1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: grid;
+  place-items: center;
+  height: 100vh;
+  width: 100vw;
+
+  background: var(--dy-bg);
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+}
+
+h1,
+button {
+  font-weight: 700;
+}
+
+.alert-error {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 8px;
+
+  font-weight: 700;
+  text-align: center;
+  line-height: 20px;
+
+  background: var(--error-cl);
+  color: var(--mn-bg-cl);
+
+  visibility: hidden;
+  opacity: 0;
+  transform: translateY(-30);
+  transition: transform 200ms;
+}
+
+.alert-error.open {
+  transform: translateY(0);
+}
+
+main {
+  display: grid;
+  gap: 2rem;
+  padding: 3rem 4rem 4rem;
+
+  width: min(26.75rem, 90%);
+
+  background: white;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
+}
+
+form {
+  display: grid;
+  gap: 1rem;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+
+  font-size: 14px;
+  line-height: 18px;
+  gap: 8px;
+
+  color: var(--lb-ft-cl);
+}
+form input {
+  line-height: 20px;
+  padding: 16px;
+
+  color: hsla(210, 9%, 31%, 0.5);
+
+  background: var(--ip-bg-cl);
+  border: none;
+  border-radius: 4px;
+  outline: 2px solid var(--ip-ot-cl);
+}
+
+form input:focus {
+  color: black;
+
+  outline: 2px solid var(--ip-ot-cl-fc);
+}
+
+main button {
+  padding: 1rem;
+  display: inline-flex;
+  justify-content: center;
+  gap: 8px;
+  align-items: center;
+
+  line-height: 20px;
+
+  border: none;
+  color: var(--mn-bg-cl);
+  background: var(--ip-ot-cl-fc);
+  border-radius: 4px;
+
+  cursor: pointer;
+}
+.modal-wrapper {
+  position: absolute;
+  display: grid;
+  place-items: center;
+
+  inset: 0;
+
+  background: rgba(0, 0, 0, 0.7);
+
+  visibility: hidden;
+  opacity: 0;
+}
+.modal-wrapper div {
+  position: relative;
+  padding: 3rem 4rem 4rem;
+  width: 90%;
+  max-width: 23rem;
+
+  background: white;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
+}
+.modal-wrapper button {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  border: none;
+  background: none;
+
+  cursor: pointer;
+}
+
+.open {
+  visibility: visible;
+  opacity: 1;
+}
+
+@media (max-width: 383px) {
+  main h1 {
+    text-align: center;
+  }
+}
+@media (max-width: 329px) {
+  main {
+    min-width: 90%;
+    padding: 3rem 1rem 1rem;
+  }
+}
