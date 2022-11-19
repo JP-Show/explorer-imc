@@ -5,6 +5,13 @@ const btCalc = document.querySelector('#btCalc')
 const inpWeight = document.querySelector('#inpWeight')
 const inpHeight = document.querySelector('#inpHeight')
 
+inpWeight.addEventListener('input', e => {
+  e ? AlertError.close() : ''
+})
+inpHeight.addEventListener('input', e => {
+  e ? AlertError.close() : ''
+})
+
 btCalc.addEventListener('click', e => {
   e.preventDefault()
   const weight = inpWeight.value
@@ -20,11 +27,4 @@ btCalc.addEventListener('click', e => {
   const result = calculateIMC(weight, height)
 
   showDisplayMesseger(result)
-})
-
-inpWeight.addEventListener('input', e => {
-  e ? AlertError.close() : ''
-})
-inpHeight.addEventListener('input', e => {
-  e ? AlertError.close() : ''
 })
